@@ -21,9 +21,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: bacongobbler/azure-blob-storage-upload@v1.1.0
+      - uses: lauchacarro/Azure-Storage-Action@v1.1
         with:
-          # The connection string for the storage account
-          connection_string: ${{ secrets.ConnectionString }}
-          container_name: images
-          source_dir: images
+          # Connection String of the Azure Storage Container
+          connection-string: ${{ secrets.ConnectionString }}
+          # Folder what contains the files for upload to Storage Container
+          folder: 'images'
+          # Name of Blob Container Storage
+          blob-container-name: 'images'
