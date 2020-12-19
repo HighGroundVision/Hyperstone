@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HGV.Basilius" Version="6.0.3" />
+    <PackageReference Include="HGV.Basilius" Version="7.28.0" />
   </ItemGroup>
 
 </Project>

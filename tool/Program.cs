@@ -55,7 +55,7 @@ namespace HGV.Hyperstone.Images
                 }
                 catch (Exception)
                 {
-                     Console.WriteLine($"Failed to Download hero banner {hero.Name} ");
+                     Console.WriteLine($"Failed to Download hero banner {hero.Key} ");
                 }
             }
 
@@ -73,7 +73,7 @@ namespace HGV.Hyperstone.Images
                 }
                 catch (Exception)
                 {
-                     Console.WriteLine($"Failed to Download Ability {ability.Name}");
+                     Console.WriteLine($"Failed to Download Ability {ability.Key}");
                 }
             }
 
@@ -91,7 +91,7 @@ namespace HGV.Hyperstone.Images
                 }
                 catch (Exception)
                 {
-                     Console.WriteLine($"Failed to Download Item {item.Name}");
+                     Console.WriteLine($"Failed to Download Item {item.Key}");
                 }
             }
         }
