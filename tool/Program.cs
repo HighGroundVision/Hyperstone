@@ -28,7 +28,7 @@ namespace HGV.Hyperstone.Images
                 try
                 {
                     var img = hero.Key.Replace("npc_dota_hero_", "");
-                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/{img}_vert.jpg?v=6120190";
+                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/{img}.png";
                     var stream = await httpClient.GetStreamAsync(url);
                     using (var fileStream = File.Create($@"images\heroes\profile\{hero.Id}.jpg"))
                     {
@@ -46,7 +46,7 @@ namespace HGV.Hyperstone.Images
                 try
                 {
                     var img = hero.Key.Replace("npc_dota_hero_", "");
-                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/{img}_full.png?v=6120190";
+                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/{img}.png";
                     var stream = await httpClient.GetStreamAsync(url);
                     using (var fileStream = File.Create($@"images\heroes\banner\{hero.Id}.jpg"))
                     {
@@ -64,7 +64,7 @@ namespace HGV.Hyperstone.Images
                 try
                 {
                     var img = ability.Key;
-                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/abilities/{img}_hp1.png?v=6120190";
+                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/{img}.png";
                     var stream = await httpClient.GetStreamAsync(url);
                     using (var fileStream = File.Create($@"images\abilities\{ability.Id}.jpg"))
                     {
