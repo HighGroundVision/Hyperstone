@@ -28,7 +28,8 @@ namespace HGV.Hyperstone.Images
                 try
                 {
                     var img = hero.Key.Replace("npc_dota_hero_", "");
-                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/{img}.png";
+                    //var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/{img}.png";
+                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/{img}.png";
                     
                     var stream = await httpClient.GetStreamAsync(url);
                     using (var fileStream = File.Create($@"images\heroes\profile\{hero.Id}.png"))
