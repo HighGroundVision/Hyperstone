@@ -20,6 +20,7 @@ namespace HGV.Hyperstone.Images
 
             Directory.CreateDirectory(@"images\heroes\banner");
             Directory.CreateDirectory(@"images\heroes\profile");
+            Directory.CreateDirectory(@"images\heroes\portrait");
             Directory.CreateDirectory(@"images\abilities");
             Directory.CreateDirectory(@"images\items");
             
@@ -28,7 +29,6 @@ namespace HGV.Hyperstone.Images
                 try
                 {
                     var img = hero.Key.Replace("npc_dota_hero_", "");
-                    //var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/{img}.png";
                     var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/{img}.png";
                     
                     var stream = await httpClient.GetStreamAsync(url);
@@ -58,6 +58,24 @@ namespace HGV.Hyperstone.Images
                 catch (Exception)
                 {
                      Console.WriteLine($"Failed to Download hero banner {hero.Key} ");
+                }
+            }
+
+            foreach (var hero in heroes)
+            {
+                try
+                {
+                    var img = hero.Key.Replace("npc_dota_hero_", "");
+                    var url = $"http://cdn.dota2.com/apps/dota2/images/heroes/{img}_vert.jpg";
+                    var stream = await httpClient.GetStreamAsync(url);
+                    using (var fileStream = File.Create($@"images\heroes\portrait\{hero.Id}.jpg"))
+                    {
+                        stream.CopyTo(fileStream);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Failed to Download hero banner {hero.Key} ");
                 }
             }
 
