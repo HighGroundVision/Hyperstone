@@ -21,6 +21,7 @@ namespace HGV.Hyperstone.Images
             Directory.CreateDirectory(@"images\heroes\banner");
             Directory.CreateDirectory(@"images\heroes\profile");
             Directory.CreateDirectory(@"images\heroes\portrait");
+            Directory.CreateDirectory(@"images\heroes\animation");
             Directory.CreateDirectory(@"images\abilities");
             Directory.CreateDirectory(@"images\items");
             
@@ -75,7 +76,25 @@ namespace HGV.Hyperstone.Images
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine($"Failed to Download hero banner {hero.Key} ");
+                    Console.WriteLine($"Failed to Download hero portrait {hero.Key} ");
+                }
+            }
+
+            foreach (var hero in heroes)
+            {
+                try
+                {
+                    var img = hero.Key.Replace("npc_dota_hero_", "");
+                    var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/{img}.webm";
+                    var stream = await httpClient.GetStreamAsync(url);
+                    using (var fileStream = File.Create($@"images\heroes\animation\{hero.Id}.webm"))
+                    {
+                        stream.CopyTo(fileStream);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Failed to Download hero animation {hero.Key} ");
                 }
             }
 
