@@ -1,7 +1,5 @@
-﻿using HGV.Basilius;
-using HGV.Basilius.Client;
+﻿using HGV.Basilius.Client;
 using System;
-using System.Linq;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -102,6 +100,9 @@ namespace HGV.Hyperstone.Images
             {
                 try
                 {
+                    if (ability.Key.Contains("special_bonus_unique"))
+                        continue;
+
                     var img = ability.Key;
                     var url = $"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/{img}.png";
                     var stream = await httpClient.GetStreamAsync(url);
