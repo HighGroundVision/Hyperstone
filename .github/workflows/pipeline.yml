@@ -19,7 +19,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: lauchacarro/Azure-Storage-Action@v1.1
+      - uses: actions/setup-dotnet@v1
+        with:
+            dotnet-version: '3.0.100'
+      - uses: lauchacarro/Azure-Storage-Action@master
         with:
           # Connection String of the Azure Storage Container
           connection-string: ${{ secrets.ConnectionString }}
